@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votaciones Personería IEXYZ 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- Elementos Flotantes -->
+<div id="system-timer-container-left">
+    <div id="floating-timer">
+        <p>Tiempo Restante del Sistema:</p>
+        <span id="system-time" class="time-display">300</span>s
+    </div>
+</div>
+<div id="results-container-right">
+    <div id="floating-results">
+        <h2>Resultados en Vivo</h2>
+        <div class="chart-container-vertical">
+            <div class="bar-vertical-wrapper">
+                <span class="bar-count" id="count1">0</span>
+                <div class="bar-label">S. Mateo V.</div>
+                <div class="bar-vertical" id="bar1-v"></div>
+            </div>
+            <div class="bar-vertical-wrapper">
+                <span class="bar-count" id="count2">0</span>
+                <div class="bar-label">I. Juliana C.</div>
+                <div class="bar-vertical" id="bar2-v"></div>
+            </div>
+        </div>
+        <p>Total: <strong id="total-votes">0</strong> / 20</p>
+    </div>
+</div>
+
+
+<!-- Contenido Principal -->
+<div class="container">
+    <h1 class="main-title">VOTACIONES IEXYZ A PERSONERIA AÑO 2025</h1>
+    <hr>
+    <div id="login-section">
+        <h2 class="section-title">Verificación Estudiantil</h2>
+        <label for="student-code">Código de estudiante <span class="required">*</span>:</label>
+        <input type="text" id="student-code" placeholder="Ej: 123">
+        <button id="start-vote-btn">Verificar e Iniciar Votación</button>
+        <p id="login-message" class="message"></p>
+    </div>
+    <div id="voting-section" style="display: none;">
+        <h2 class="timer-heading">Tiempo restante para votar: <span id="timer" class="time-display">60</span> segundos</h2>
+        <p>Seleccione su candidato:</p>
+        <form id="vote-form">
+            <div class="candidate-option" onclick="selectCandidate('candidato1')">
+                <img src="https://img.freepik.com/premium-vector/caucasian-student-boy-his-desk-writing-homework_38747-690.jpg" alt="Candidato 1" class="candidate-img">
+                <div class="candidate-info">
+                    <input type="radio" id="candidato1" name="candidato" value="Candidato 1" required>
+                    <label for="candidato1">Santiago Mateo Villalobos Arce</label>
+                </div>
+            </div>
+            <div class="candidate-option" onclick="selectCandidate('candidato2')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtAIcDHAWOEfuZ_Z4p-Uz_0bjRbKkWC6uTknz4QiZmQ_p-B98ps1gLC0Dpv1w-OAQwrf0&usqp=CAU" alt="Candidato 2" class="candidate-img">
+                <div class="candidate-info">
+                    <input type="radio" id="candidato2" name="candidato" value="Candidato 2" required>
+                    <label for="candidato2">Isabela Juliana Cifuentes Gómez</label>
+                </div>
+            </div>
+            <button type="submit" id="submit-vote-btn">Enviar Voto</button>
+        </form>
+        <p id="vote-message" class="message"></p>
+    </div>
+    <div id="final-result-display" style="display: none;">
+        <p id="winner-message"></p>
+    </div>
+</div>
+
+
+<!-- Modal para Cierre del Sistema -->
+<div id="modal-overlay" style="display: none;"></div>
+<div id="system-closed-modal" style="display: none;">
+    <h2>¡Votación Cerrada!</h2>
+    <p id="modal-message"></p>
+    <button id="modal-close-btn">Entendido</button>
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
