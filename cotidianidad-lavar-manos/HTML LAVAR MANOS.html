@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Como Lavar Tus Manos?</title>
+    <style>
+        body {
+            font-family: 'Pacifico', cursive; /* Fuente llamativa */
+            background-color: #f0f8ff; /* Azul muy claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Alinea arriba para el contenido */
+            min-height: 100vh;
+            margin: 0;
+            padding-top: 20px; /* Espacio en la parte superior */
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #2962ff; /* Azul eléctrico */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        #contenedor-principal {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 90%;
+            max-width: 700px;
+            margin-bottom: 30px; /* Separación del footer */
+        }
+
+        .pregunta {
+            font-size: 1.8em;
+            color: #1565c0; /* Azul oscuro */
+            margin-bottom: 20px;
+        }
+
+        .opciones {
+            display: flex;
+            flex-direction: column; /* Alinea los botones verticalmente */
+            align-items: center; /* Centra los botones horizontalmente */
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: #03a9f4; /* Azul claro vibrante */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 80%; /* Ancho relativo */
+            max-width: 300px; /* Ancho máximo */
+        }
+
+        button:hover {
+            background-color: #0288d1; /* Azul más oscuro al pasar el mouse */
+            transform: scale(1.05);
+        }
+
+        #resultado {
+            font-size: 1.4em;
+            color: #2e7d32; /* Verde */
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border: 1px solid #a5d6a7;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #b3e5fc; /* Azul muy claro */
+            padding: 20px;
+            text-align: center;
+            color: #0d47a1; /* Azul oscuro */
+            border-radius: 10px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Sombra superior */
+            margin-top: auto; /* Empuja el footer hacia abajo */
+            width: 100%;
+            max-width: 700px; /*Mismo ancho que contenedor principal*/
+        }
+
+        a {
+            color: #1976d2; /* Azul */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h1>¿Cómo Lavar Tus Manos?</h1>
+
+    <div id="contenedor-principal">
+        <div class="pregunta" id="pregunta-lavamanos">¿Usarás lavamanos?</div>
+        <div class="opciones" id="opciones-lavamanos">
+            <button onclick="seleccionarLavamanos(true)">SI</button>
+            <button onclick="seleccionarLavamanos(false)">NO</button>
+        </div>
+
+        <div class="pregunta" id="pregunta-jabon" style="display: none;">¿Usarás jabón líquido o en barra?</div>
+        <div class="opciones" id="opciones-jabon" style="display: none;">
+            <button onclick="seleccionarJabon('liquido')">JABON LIQUIDO</button>
+            <button onclick="seleccionarJabon('barra')">JABON EN BARRA</button>
+            <button onclick="seleccionarJabon('ninguno')">NO TENGO JABON</button>
+        </div>
+
+        <div id="resultado" style="display: none;"></div>
+    </div>
+
+    <footer>
+        ¡Lava tus manos correctamente para una mejor salud!  Más información en <a href="https://www.imss.gob.mx/salud-en-linea/infografias/lavado-manos" target="_blank"> Lavado de Manos OMS</a>
+    </footer>
+
+    <script>
+        let usaLavamanos = null;
+        let usaJabon = null;
+
+        function seleccionarLavamanos(respuesta) {
+            usaLavamanos = respuesta;
+            document.getElementById('opciones-lavamanos').style.display = 'none';
+            document.getElementById('pregunta-lavamanos').style.display = 'none';
+            document.getElementById('pregunta-jabon').style.display = 'block';
+            document.getElementById('opciones-jabon').style.display = 'flex';
+        }
+
+        function seleccionarJabon(tipo) {
+            usaJabon = tipo;
+            document.getElementById('opciones-jabon').style.display = 'none';
+            document.getElementById('pregunta-jabon').style.display = 'none';
+            mostrarResultado();
+        }
+
+        function mostrarResultado() {
+            let mensaje = "";
+
+            if (usaLavamanos === true) {
+                mensaje += "1. Abre la llave y mojate las manos durante 5 segundos, luego cierra la llave.<br>";
+            } else {
+                mensaje += "1. Llena una ponchera de agua y luego mete las manos para mojarlas durante 5 segundos, luego saca las manos.<br>";
+            }
+
+            if (usaJabon === 'liquido' || usaJabon === 'barra') {
+                mensaje += "2. Enjabona tus manos durante 30 segundos.<br>";
+            } else {
+                mensaje = "No podrá lavar sus manos.";
+                document.getElementById('resultado').innerHTML = mensaje;
+                document.getElementById('resultado').style.display = 'block';
+                return; // Sale de la función si no hay jabón
+            }
+
+            if (usaLavamanos === true) {
+                mensaje += "3. Abrir la llave y enjuagate durante 15 segundos.<br>";
+                mensaje += "4. Cierra la llave.";
+            } else {
+                mensaje += "3. Sumerge tus manos durante 15 segundos.<br>";
+                mensaje += "4. Bota el agua de la ponchera.";
+            }
+
+            document.getElementById('resultado').innerHTML = mensaje;
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
+
+    <div style="max-height: 300px; position: fixed; left: 20px; bottom: 0px; z-index: 99;">
+<img src="https://h5p.org/sites/default/files/h5p/content/111233/images/file-59a01398903d7.jpg" height="250"/></div>
+
+<div style="float:  ; max-height: 200px; position: fixed; right: 5px; top: 5px; z-index: 99;">
+<img src="https://png.pngtree.com/png-clipart/20220117/original/pngtree-cartoon-hand-washing-cleaning-material-png-image_7147437.png"" width="230" height="230"/></div>
+
+</body>
+</html>
