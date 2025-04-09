@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Nota Necesaria</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Calculadora de Nota Necesaria</h1>
+
+    <label for="primerCorte">Nota Primer Corte (30%):</label>
+    <input type="number" id="primerCorte" min="0" max="5" step="0.1" value="0">
+
+    <label for="segundoCorte">Nota Segundo Corte (30%):</label>
+    <input type="number" id="segundoCorte" min="0" max="5" step="0.1" value="0">
+
+    <!-- Se eliminó el onclick y se agregó un id para manejarlo desde JS -->
+    <button id="calculateButton">Calcular Nota Necesaria en Tercer Corte</button>
+
+    <div id="resultado"></div>
+
+    <!-- Enlace al archivo JavaScript externo (al final del body es buena práctica) -->
+    <script src="script.js"></script>
+
+</body>
+</html>
