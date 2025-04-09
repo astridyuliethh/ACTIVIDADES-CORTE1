@@ -1,0 +1,75 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0fff0; /* Light green background */
+  color: #333; /* Dark grey text */
+}
+
+/* Título Centrado, en Mayúsculas y Verde Fuerte */
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #008000; /* Green headings */
+}
+
+#file-upload-container {
+  margin-bottom: 20px;
+}
+
+/* Botón "Seleccionar Archivo" Centrado */
+#file-input {
+  display: block;
+  margin: 0 auto;
+}
+
+#student-list-container {
+  margin-bottom: 20px;
+}
+
+#student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#student-table th,
+#student-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#student-table th {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+#groups-container {
+  margin-top: 20px;
+}
+
+/* Grupos en Tablas con Borde Verde Fuerte */
+.group {
+  border: 2px solid #008000; /* Borde verde fuerte */
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.group h4 {
+  font-size: 1.2em;
+  color: #008000; /* Blue group title */
+  margin-bottom: 5px;
+}
+
+.group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group li {
+  margin-bottom: 5px;
+}
+
+#file-upload-status {
+  color: red;
+}
